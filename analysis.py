@@ -99,10 +99,63 @@ elif selected_tab == 'Analysis':
     st.scatter_chart(c,x='Country/Region',y='Deaths / 100 Recovered',color='Deaths / 100 Cases',size='Recovered / 100 Cases')
     st.divider()
 
+# Conclusion
 elif selected_tab == 'Conclusion':
-    st.markdown("Highest number of cases are from United States, Brazil and India") 
-    st.markdown("Most number of cases are from American WHO Region")  
-    st.markdown("Recovery is less than new cases")  
-    st.markdown("Europe and Africa are effecte most")   
-    st.markdown("Percentage of increase per week is growing every week") 
-    st.markdown("Country with high population are most effected")
+    d1=df['Confirmed'].sum()
+    d2=df['Deaths'].sum()
+    d3=df['Recovered'].sum()
+    d4=df['Active'].sum()
+    d5=df['New cases'].sum()
+    d6=df['New deaths'].sum()
+    d7=df['New recovered'].sum()
+
+    # Overall Total
+    st.subheader('Total Numbers')
+    cl1,cl2,cl3,cl4 = st.columns(4)
+    with cl1:
+        st.metric('Total no of Cases',d1)
+    with cl2:
+        st.metric('Total no of Deaths',d2)
+    with cl3:
+        st.metric('Total recovered people',d3)
+    with cl4:
+        st.metric('Total Active cases',d4)
+    st.divider()
+
+    st.subheader('Total per week')
+
+    cl5,cl6,cl7 = st.columns(3)
+    with cl5:
+        st.metric('New Cases',d5)
+    with cl6:
+        st.metric('Deaths',d6)
+    with cl7:
+        st.metric('Recovery Cases',d7)
+    st.divider()
+
+    # Total representation chart
+    ddt1=[d1,d2,d3,d4]
+    ddt2=[d5,d6,d7]
+    clm1,clm2 = st.columns(2)
+    with clm1:
+        st.subheader('Total Numbers')
+        st.bar_chart(ddt1)
+    with clm2:
+        st.subheader('Total per week')
+        st.bar_chart(ddt2)
+    st.divider()
+
+    # Final Conclusion
+    ccl1,ccl2 = st.columns(2)
+    with ccl1:
+        st.subheader('Final Conclusion')
+        st.markdown("Highest number of cases are from United States, Brazil and India") 
+        st.markdown("Most number of cases are from American WHO Region")  
+        st.markdown("Recovery is less than new cases")  
+        st.markdown("Europe and Africa are effecte most")   
+        st.markdown("Percentage of increase per week is growing every week") 
+        st.markdown("Country with high population are most effected")
+    with ccl2:
+        st.subheader('Take Care')
+        st.image('safe.jpg')
+    st.divider()
