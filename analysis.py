@@ -155,19 +155,19 @@ elif selected_tab == 'Conclusion':
     st.subheader('Total Numbers')
     cl1,cl2,cl3 = st.columns(3)
     with cl1:
-        st.metric('Total Population',d1)
+        st.metric('Total Population',d1,delta='6.32 B')
     with cl2:
-        st.metric('Total Tests',d2)
+        st.metric('Total Tests',d2,delta='26.78 M')
     with cl3:
-        st.metric('Total no cases',d3)       
+        st.metric('Total no cases',d3,delta='1.91 M',delta_color='inverse')       
 
     cl4,cl5,cl6, = st.columns(3)
     with cl4:
-        st.metric('Total Recovered',d4)
+        st.metric('Total Recovered',d4,delta='1.20 M')
     with cl5:
-        st.metric('Total death',d5)      
+        st.metric('Total death',d5,delta='0.71 M',delta_color='inverse')      
     with cl6:
-       st.metric('Total Active Cases',d6) 
+       st.metric('Total Active Cases',d6,delta='5.67 M') 
     st.divider()
 
     st.subheader('Graphical Representation')
@@ -190,11 +190,11 @@ elif selected_tab == 'Conclusion':
     with ccl1:
         st.subheader('Final Conclusion')
         st.markdown(" * Highest number of cases are from United States, Brazil and India") 
-        st.markdown(" * Most number of cases are from American WHO Region")  
-        st.markdown(" * Recovery is less than new cases")  
-        st.markdown(" * Europe and Africa are effecte most")   
-        st.markdown(" * Percentage of increase per week is growing every week") 
-        st.markdown(" * Country with high population are most effected")
+        st.markdown(" * Most number of cases are from American Continent")  
+        st.markdown(" * Recovery is faster and more than new cases")  
+        st.markdown(" * North America and Asia are effected the most")   
+        st.markdown(" * Asia is recovering fast followed by North America") 
+        st.markdown(" * North America suffered most followed by Asia")
     with ccl2:
         st.subheader('Take Care')
         st.image('safe.jpg')
